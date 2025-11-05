@@ -19,5 +19,4 @@ mkdir -p $PLOT_DIR
 cd $PLOT_DIR
 
 module load $R_MODULE 
-Rscript $WORK_DIR/scripts/RAnalysis/05_plot_div.R \
-$DIV_DATA
+Rscript $WORK_DIR/script/06_plot_div.R $DIV_DATA
