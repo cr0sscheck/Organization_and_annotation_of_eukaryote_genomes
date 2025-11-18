@@ -11,8 +11,9 @@ library(cowplot)
 #-------------------------------------------------
 # Input files (edit paths if needed)
 #-------------------------------------------------
-gff_file <- "data/results/EDTA_annotation/*.raw/*.fa.mod.LTR.intact.raw.gff3"
-cls_file <- "data/results/EDTA_annotation/*.mod.LTR.raw.fa.rexdb-plant.cls.tsv"
+args = commandArgs(trailingOnly=TRUE)
+gff_file <- args[1]
+cls_file <- args[2]
 # cls_file is the output from TEsorter on the raw LTR-RT fasta file
 #-------------------------------------------------
 # Read and preprocess input data
@@ -112,5 +113,7 @@ p_gypsy <- plot_by_clade(anno_cls, "Gypsy", global_ymax)
 # Combine with cowplot side-by-side 
 combined <- plot_grid(p_copia, p_gypsy, ncol = 2, rel_widths = c(1, 1))
 
-ggsave("plots/01_LTR_Copia_Gypsy_cladelevel.png", combined, width = 12, height = 10, dpi = 300)
-ggsave("plots/01_LTR_Copia_Gypsy_cladelevel.pdf", combined, width = 12, height = 10)
+ggsave("01_LTR_Copia_Gypsy_cladelevel.png", combined, width = 12, height = 10, dpi = 300)
+ggsave("01_LTR_Copia_Gypsy_cladelevel.pdf", combined, width = 12, height = 10)
+
+message("Both plot done in :", getwd())

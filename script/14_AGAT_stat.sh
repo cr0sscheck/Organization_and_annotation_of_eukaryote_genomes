@@ -18,6 +18,8 @@ AGAT_IMG=/containers/apptainer/agat-1.2.0.sif
 
 mkdir -p $OUT_DIR
 
+cd $OUT_DIR
+
 apptainer exec \
     --bind /data \
     $AGAT_IMG \
