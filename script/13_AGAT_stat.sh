@@ -20,6 +20,7 @@ mkdir -p $OUT_DIR
 
 cd $OUT_DIR
 
+#will standardize gene annotation in gff format
 apptainer exec \
     --bind /data \
     $AGAT_IMG \

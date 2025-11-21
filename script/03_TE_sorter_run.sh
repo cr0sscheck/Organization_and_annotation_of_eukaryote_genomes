@@ -31,6 +31,7 @@ seqkit grep -r -p "Gypsy" $TE_LIB > $GYPSY_SEQ_FILE
 
 cd $OUT_DIR
 
+#Extracting Copia and Gypsy sequences from the EDTA TE library
 apptainer exec --bind /data $TE_sorter_image \
 TEsorter $COPIA_SEQ_FILE -db rexdb-plant
 apptainer exec --bind /data $TE_sorter_image \

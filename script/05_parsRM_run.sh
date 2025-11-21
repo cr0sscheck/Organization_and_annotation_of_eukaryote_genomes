@@ -21,6 +21,7 @@ mkdir -p $OUT_DIR
 
 cd $OUT_DIR
 
+#process the raw alignment from Repeat Maker
 module add $PERL_MODULE
 perl $PERL_SCRIPT -i $REPEATMASKER_FILE -l 50,1 -v
 

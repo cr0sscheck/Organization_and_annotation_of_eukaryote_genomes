@@ -29,5 +29,5 @@ module load $R_MODULE
 cd $PLOT_DIR
 
 # Creating plots through R script
-Rscript /data/users/amroczek/annotation_assembly_course/Organisation_and_annotation_course/script/05_annotation_circle.R \
+Rscript /data/users/amroczek/annotation_assembly_course/Organisation_and_annotation_course/script/04_b_annotation_circle.R \
 $TE_ANNOTATION $ASSEMBLY_FAI

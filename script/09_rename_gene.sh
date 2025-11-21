@@ -32,6 +32,7 @@ cp $transcript $transcript_ren
 
 cd $OUT_DIR
 
+#Rename all gene/transcript/protein IDs in the MAKER output.
 $MAKER_BIN/maker_map_ids --prefix $ACCESSION --justify 7 $gff_ren > id.map
 $MAKER_BIN/map_gff_ids id.map $gff_ren
 $MAKER_BIN/map_fasta_ids id.map $protein_ren

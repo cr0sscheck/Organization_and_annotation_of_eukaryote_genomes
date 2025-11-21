@@ -14,10 +14,16 @@ OUT_DIR=$WORK_DIR/gene_annotation
 REPEATMASKER_DIR="/data/courses/assembly-annotation-course/CDS_annotation/softwares/RepeatMasker"
 MAKER_IMG=/data/courses/assembly-annotation-course/CDS_annotation/containers/MAKER_3.01.03.sif
 
-export PATH=$PATH:$REPEATMASKER_DIR
 
-mkdir -p $OUT_DIR
 cd $OUT_DIR
 
-apptainer exec --bind /data $MAKER_IMG \
-maker -CTL
+module load OpenMPI/4.1.1-GCC-10.3.0
+module load AUGUSTUS/3.4.0-foss-2021a
+
+#MAKER+MPI build genome annotations, produce GFF3 gene models, 
+#predicted transcripts, predicted proteins, repeat annotations, 
+#evidence tracks, and logs for your assembly.
+mpiexec --oversubscribe -n 50 apptainer exec \
+--bind $SCRATCH:/TMP --bind $COURSE_DIR --bind $AUGUSTUS_CONFIG_PATH --bind $REPEATMASKER_DIR --bind /data \
+$MAKER_IMG \
+maker -mpi --ignore_nfs_tmp -TMP /TMP maker_opts.ctl maker_bopts.ctl maker_evm.ctl maker_exe.ctl

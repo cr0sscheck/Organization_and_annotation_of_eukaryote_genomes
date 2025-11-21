@@ -16,7 +16,10 @@ cds_annotation="/data/courses/assembly-annotation-course/CDS_annotation/data/TAI
 mkdir -p $WORKDIR/results/EDTA_annotation
 cd $WORKDIR/results/EDTA_annotation
 
-
+#Run EDTA on my hifiasm genome assembly where CDS_annotation is used to remove
+#every TE candidates that overlap known gene.
+#step all means you gonna run the entire EDTA pipeline: TE discovery, filtering, classification, and annotation.
+#and anno 1 means you gonna generate a final genome annotation.
 apptainer exec --bind /data $EDTA2_image \
 EDTA.pl \
     --genome $assembly_hifiasm \

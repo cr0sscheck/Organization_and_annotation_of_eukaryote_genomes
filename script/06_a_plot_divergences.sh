@@ -18,5 +18,6 @@ R_MODULE=R-bundle-IBU/2023072800-foss-2021a-R-4.2.1
 mkdir -p $PLOT_DIR
 cd $PLOT_DIR
 
+#The R script will plot the TE density and TE divergence landscape
 module load $R_MODULE 
-Rscript $WORK_DIR/script/06_plot_div.R $DIV_DATA
+Rscript $WORK_DIR/script/06_b_plot_div.R $DIV_DATA

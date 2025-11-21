@@ -22,6 +22,9 @@ OUT_ASSEMBLY_FOLDER=$OUT_DIR
 
 mkdir -p $OUT_DIR/final
 
+#Merge all MAKER GFFs into one final annotation
 $MAKER_BIN/gff3_merge -s -d $DATASTORE_INDEX_LOG > $OUT_ALL_GFF
+#Same GFF, but without embedded FASTA sequences
 $MAKER_BIN/gff3_merge -n -s -d $DATASTORE_INDEX_LOG > assembly.all.maker.noseq.gff
+#Merge all produced FASTA files
 $MAKER_BIN/fasta_merge -d $DATASTORE_INDEX_LOG -o $OUT_ASSEMBLY_FOLDER

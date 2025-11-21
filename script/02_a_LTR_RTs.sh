@@ -19,6 +19,7 @@ R_MODULE=R-bundle-IBU/2023072800-foss-2021a-R-4.2.1
 
 cd $OUT_DIR
 
+#classifie the raw LTR candidates by protein domains using the RexDB-plant database.
 apptainer exec --bind /data $TE_sorter_image \
 TEsorter *.fa.mod.EDTA.raw/*.mod.LTR.raw.fa -db rexdb-plant
 
@@ -26,5 +27,5 @@ cd $PLOT_DIR
 
 # Plot the number of LTR-RTs in each clade with their corresponding percent identity
 module load $R_MODULE 
-Rscript $WORK_DIR/../script/03-full_length_LTRs_identity_1.R \
+Rscript $WORK_DIR/../script/02_b_full_length_LTRs_identity.R \
 $LTRRT_ANNOTATION $TSV_FILE \
